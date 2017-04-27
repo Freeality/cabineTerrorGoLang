@@ -12,18 +12,8 @@ func main() {
 }
 
 func iniciarAffected() {
-
+	t0 := time.Now()
 	tempoEspera := 5 * time.Second
-	timer := time.NewTimer(tempoEspera)
-
-	go func() {
-		for t := range timer.C {
-			intervalo := time.Since(t)
-			//if intervalo > 1 {
-			fmt.Printf("Contando... %s\n", intervalo)
-			//}
-		}
-	}()
 
 	ctx, cancel := context.WithTimeout(context.Background(), tempoEspera)
 	defer cancel()
@@ -33,5 +23,7 @@ func iniciarAffected() {
 
 	if err != nil {
 		fmt.Printf("Código de saída...%v \n", err)
+		t1 := time.Now()
+		fmt.Printf("Tempo de execução... %v\n", t1.Sub(t0))
 	}
 }
