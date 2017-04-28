@@ -8,7 +8,12 @@ import (
 )
 
 func main() {
+	// iniciarAffected()
 	iniciarAffected()
+}
+
+func iniciarAffectedSemEsperar() {
+
 }
 
 func iniciarAffected() {
@@ -18,7 +23,7 @@ func iniciarAffected() {
 	ctx, cancel := context.WithTimeout(context.Background(), tempoEspera)
 	defer cancel()
 
-	cmnd := exec.CommandContext(ctx, "Affected v1.62.exe", "arg")
+	cmnd := exec.CommandContext(ctx, "notepad")
 	err := cmnd.Run()
 
 	if err != nil {
