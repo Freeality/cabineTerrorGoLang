@@ -1,7 +1,7 @@
 package main
 
 import (
-	u "github.com/freeality/cabineTerrorGoLang/utils"
+	u "github.com/freeality/cabineTerrorGoLang/iniciar"
 	"time"
 )
 
