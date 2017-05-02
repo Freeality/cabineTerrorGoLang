@@ -1,8 +1,12 @@
 package main
 
 import (
-	u "github.com/freeality/cabineTerrorGoLang/iniciar"
+	"os"
 	"time"
+
+	"fmt"
+
+	u "github.com/freeality/cabineTerrorGoLang/log"
 )
 
 // O usuário deve poder utilizar o jogo por 5 minutos.
@@ -12,6 +16,13 @@ import (
 // cada vez que o usuário utiliza o jogo um registro deve ser armazenado
 // em um arquivo para consulta posterior.
 func main() {
-	i := u.Iniciar{Programa: "notepad", Intervalo:time.Second * 5}
-	i.IniciarComTicker()
+	nomeDoPrograma := os.Args[1]
+
+	if len(nomeDoPrograma) == 0 {
+		fmt.Printf("O nome do programa deve ser especificado")
+		return
+	}
+
+	i := u.Log{Programa: nomeDoPrograma, Intervalo: time.Second * 5}
+	i.IniciarEsperando()
 }
