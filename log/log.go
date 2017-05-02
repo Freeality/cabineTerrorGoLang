@@ -11,8 +11,9 @@ import (
 
 // Log representa um registro de execução do programa
 type Log struct {
-	Programa  string
-	Intervalo time.Duration
+	Programa    string
+	Intervalo   time.Duration
+	TempoMinimo time.Duration
 }
 
 // IniciarComTicker inicia o programa no intervalo de tempo da instancia
@@ -55,7 +56,7 @@ func (i *Log) IniciarEsperando() {
 
 		home := os.ExpandEnv("${HOMEPATH}")
 
-		if len(home) > 0 {
+		if len(home) > 0 && duracao > i.TempoMinimo {
 			criaArquivo(duracao, t1, fmt.Sprintf("%s\\logs", home))
 		}
 	}
