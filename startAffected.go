@@ -23,6 +23,7 @@ func main() {
 		return
 	}
 
-	i := u.Log{Programa: nomeDoPrograma, Intervalo: time.Second * 5}
+	// temporariamente está programado para rodar por 5 segundos
+	i := u.Log{Programa: nomeDoPrograma, Intervalo: time.Second * 5, TempoMinimo: time.Second * 2}
 	i.IniciarEsperando()
 }
